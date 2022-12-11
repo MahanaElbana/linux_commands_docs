@@ -1,15 +1,17 @@
 
 # commands to create project && Deploy on DigitalOcean 🔭
 
-- on server should install python and update ubuntu machine and install pip 
+- on server should install python and update ubuntu machine and install pip ☄️
   ```
   sudo apt update 
   sudo apt upgrade 
   suddo apt install python3.10
   sudo apt-get install python3-pip
+  pip3 install virtualenv
+  python3 -m pip install --upgrade pip
   ```
 
-- **(Django project Structure)** or **git clone the project from gitHub and create virtual environment**
+- **(Django project Structure)** or **git clone the project from gitHub and create virtual environment** ☄️
   
   - create django project 
     
@@ -21,43 +23,157 @@
             - project
               - settings.py
     ```
+    ```
+    /home/mahney/Documents/repo_github/linux_commands_docs
+       - /home/mahney/Documents/repo_github/linux_commands_docs/ven
+       - /home/mahney/Documents/repo_github/linux_commands_docs/PlatRain
+    ```
+
+  - OR git clone the project from gitHub
+    
+    ```
+    git clone repo_path 
+    virtualenv venv
+    pip install -r requirements.txt
+    pip install gunicorn
+    source ./venv/bin/activate
+    ```
+   - under the path : to test the project 
+     /home/mahney/Documents/repo_github/linux_commands_docs/DigitalOceanDjangoNginxGunicornSSL/PlatRain 
+     ```  
+     gunicorn --bind  0.0.0.0:8888  project.wsgi
+     ```
   - ![django project structure](./project_django_structure.png) 
 
 
-
-
-```
-cd /media/hardmahney/E_Conclusion/django_gunicorn_example
-
-virtualenv venv
-
-source ./venv/bin/activate
-
-python3 -m pip install --upgrade pip
-
-pip install gunicorn
+# ./linux_commands_docs/DigitalOceanDjangoNginxGunicornSSL/PlatRain/project/settings.py 
 
 ```
- - copy PlatRain project to */media/hardmahney/E_Conclusion/django_gunicorn_example* then 
+# imports package
+from pathlib import Path
+import os
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# security key and Debug 
+SECRET_KEY = "Password"
+DEBUG = False
+
+
+ALLOWED_HOSTS = ['*' , "IPOrDomainNmae"]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+# Application definition
+
+INSTALLED_APPS = [
+    
+   'installed app added here'
+]
+
+AUTH_USER_MODEL ='accounts.User'
+MIDDLEWARE = [
+   'middleware is added here'
+]
+
+
+
+ROOT_URLCONF = 'project.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR/'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'project.wsgi.application'
+
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'platrain',
+#         'USER': 'platrain',
+#         'PASSWORD': 'withALLAH',
+#         'HOST': '127.0.0.1',
+#         'PORT': '',
+#     }
+# }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+
+LANGUAGE_CODE = 'en-us'
+
+
+TIME_ZONE = 'Africa/Cairo'
+
+USE_I18N = True
+
+USE_TZ = True
+
+
+# Static file should be in the same method 
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# Media  file should be in the same method  
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# django crispy forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+
+# SMTP Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'host user'
+EMAIL_HOST_PASSWORD = 'password fro google settings'
+
+#  Media  file should be exist for cross origin error
+CSRF_TRUSTED_ORIGINS = ['*','http://*.IpOrDomainName']
+SECURE_CROSS_ORIGIN_OPENER_POLICY = ['IpOrDomainName','*']
 ```
-cd PlatRain/
-
-pip install -r requirements.txt
-
-# gunicorn --bind  0.0.0.0:8888  project.wsgi # for test
-
-cd /media/hardmahney/E_Conclusion/django_gunicorn_example/PlatRain
-
-docker build -t djangogunicorn .
-
-```
-
- - Run djangogunicorn image 
-   
-   ```
-   docker run --name djpro -itd -p 88:8000 -v /media/hardmahney/E_Conclusion/django_gunicorn_example/PlatRain:/code djangogunicorn
-   ```
 
 # Note can be make error for you check that **PlatRain/project/settings.py**   
  - True settings 
@@ -295,7 +411,7 @@ server {
         }
 
 ```
-
+# Python manage.Py collectstatic
 # default in *nginx.conf*
 
 # commands you need to use
