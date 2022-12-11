@@ -41,8 +41,10 @@
 
    - <H2 align="center"> 🔦 Part 1 : enable ufw 🔦 </H2>  
      
+     
      ```
      sudo ufw enable
+     
      ```
     
    - <H2 align="center"> 🔦 Part 2 : add rule to firewall 🔦 </H2>   
