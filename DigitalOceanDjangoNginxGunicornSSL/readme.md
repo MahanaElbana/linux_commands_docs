@@ -170,7 +170,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'host user'
 EMAIL_HOST_PASSWORD = 'password fro google settings'
 
-#  Media  file should be exist for cross origin error
+# The following settings should be exist for cross origin error
 CSRF_TRUSTED_ORIGINS = ['*','http://*.IpOrDomainName']
 SECURE_CROSS_ORIGIN_OPENER_POLICY = ['IpOrDomainName','*']
 ```
