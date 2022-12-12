@@ -149,13 +149,7 @@
 --------------
 --------------
 
-
-
-
-# 1. <a href="#Networking">Networking part -------------------------|</a>
-
--
-# How to change [ theme and icons ] 
+# How to change [ Theme and icons ] 
 
 1. Write the following command in terminal :: to can move files from path to another 
 
@@ -236,78 +230,69 @@ sudo apt install audacity
 ```
 df -h 
 ```
-# 🤞 A list of basic troubleshooting commands and their function within Ubuntu Linux
-| count | Command                                                        | Function                                                                               |
-| ----- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| 1     | ```sudo```                                                     | Used before a command to run as a root or an administrator                             |
-| 2     | ```rm -d dirname``` or ```rmdir dirname```                     | To remove an empty directory => any command remove directory                           |
-| 3     | ```rm -r dirname```                                            | To remove non-empty directories and all the files within them                          |
-| 4     | ``` man -f ls ```  or ```man --whatis ls``` or ```whatis ls``` | To show info about **ls** command , [-f, --whatis] = whatis ,man = mannual             |
-| 5     | ``` ls```                                                      | List directory contents                                                                |
-| 6     | ``` man -k fdisk```                                            | list commands to  manipulate disk partition table                                      |
-| 7     | ``` info ```                                                   | - read Info documents - readable online documentation                                  |
-| 8     | ``` info ls```                                                 | more details than **man -f** or **man** or **man -k**                                  |
-| 9     | ```xman```                                                     | Manual page display program for the X Window System                                    |
-| 10    | ```xman &```                                                   | show a manual page to help for known information about any command                     |
-| 11    | ```ps aux```                                                   | report a snapshot of the current processes                                             |
-| 12    | ` ps aux ! grep chrome `                                       | to find a particular process                                                           |
-| 13    | ``` kill id_process```                                         | How to kill/stop a particular process                                                  |
-| 14    | ```lsof```                                                     | command will show list of all open files                                               |
-| 15    | ```top```                                                      | To know about all the running processes ,and their related status about CPU and memory |
-| 16    | ```sudo systemctl reboot```                                    | To reboot the system using the systemctl command.                                      |
-| 17    | ```sudo systemctl shutdown```                                  | To shutdown the system using the systemctl command.                                    |
-| 18    | ```sudo apt-get update```                                      | To update all the package information for the Debian repositories                      |
-| 19    | ```sudo apt-get install```                                     | To install any given package from the repository.                                      |
-| 20    | ```ssh user@hostname```                                        | ssh command to login to remote computers                                               |
-| 21    | ```sudo systemctl status sshd```                               | To know the current status of the service                                              |
-| 22    | ```ssh mahney@localhost```                                     | to connect my device using shh                                                         |
-| 23    | ```sudo apt install ssh```                                     | to install ssh service                                                                 |
-| 24    | ```systemctl status ufw```                                     | to show status of ubuntu firewall                                                      |
-| 25    | ```systemctl start ufw```                                      | to run ubuntu firewall                                                                 |
-| 26    | ```systemctl stop ufw```                                       | to run ubuntu firewall                                                                 |
+# A List of Basic Troubleshooting Commands and their function within Ubuntu Linux
+
+ - Used before a command to run as a root or an administrator
+ -  
+```sudo ```                                                    | Used before a command to run as a root or an administrator                             |
+```rm -d dirname or rmdir dirname ```                          | To remove an empty directory => any command remove directory                           |
+```rm -r dirname   ```                                         | To remove non-empty directories and all the files within them                          |
+```man -f ls ```  or ```man --whatis ls``` or ```whatis ls```  | To show info about **ls** command , [-f, --whatis] = whatis ,man = mannual             |
+```ls```                                                       | List directory contents                                                                |
+```man -k fdisk```                                             | list commands to  manipulate disk partition table                                      |
+```info    ```                                                 | - read Info documents - readable online documentation                                  |
+```info ls   ```                                               | more details than **man -f** or **man** or **man -k**                                  |
+```xman  ```                                                   | Manual page display program for the X Window System                                    |
+```xman & ```                                                  | show a manual page to help for known information about any command                     |
+```ps aux```                                                   | report a snapshot of the current processes                                             |
+```ps aux ! grep chrome ```                                    | to find a particular process                                                           |
+```kill id_process```                                          | How to kill/stop a particular process                                                  |
+```lsof```                                                     | command will show list of all open files                                               |
+```top```                                                      | To know about all the running processes ,and their related status about CPU and memory |
+```sudo systemctl reboot```                                    | To reboot the system using the systemctl command.                                      |
+```sudo systemctl shutdown```                                  | To shutdown the system using the systemctl command.                                    |
+```sudo apt-get update```                                      | To update all the package information for the Debian repositories                      |
+```sudo apt-get install```                                     | To install any given package from the repository.                                      |
+```ssh user@hostname```                                        | ssh command to login to remote computers                                               |
+```sudo systemctl status sshd```                               | To know the current status of the service                                              |
+```ssh mahney@localhost```                                     | to connect my device using shh                                                         |
+```sudo apt install ssh```                                     | to install ssh service                                                                 |
+```systemctl status ufw```                                     | to show status of ubuntu firewall                                                      |
+```systemctl start ufw```                                      | to run ubuntu firewall                                                                 |
+```systemctl stop ufw```                                       | to run ubuntu firewall                                                                 |
 
 
-----
-----
-----
+------------------------
+------------------------
+------------------------ 
 
-# <a id="Networking"> How to Configure Network Connection Using ‘nmcli’ Tool </a> 👍
 
- 1. nmcli (the network manager command-line interface)
+##  How to Configure Network Connection Using **nmcli** Tool  👍
 
- 2. To display all the active network interfaces on your Linux system execute the command.
-   ```
-   ➜  ~ nmcli connection show
-   OR
-   ➜  ~ nmcli con show
-   ```
- 3. To display both active and inactive interfaces. 
-   ```
-   ➜  ~ nmcli dev status
-   ``` 
- 4. modify a network interface(wlp2s0) to use a static IP address .
-   ```
-   nmcli device modify wlp2s0 ipv4.address 192.168.1.40/16 ipv4.gateway 192.168.1.1 ipv4.dns 8.8.8.8 ipv4.method manual
-   ```
- 5. To show ip address of your device 
-   ```
-   ip address show 
-   or
-   ip addr
-   or 
-   nmcli
-   ```  
-----
-----
-----
+  - nmcli (the network manager command-line interface)
 
-# ??? " -- future plans " ???
-- linux course  =>  in ' /media/mahney/hardmahney/administration '
-- linux book    =>  in '/media/mahney/hardmahney/libraryBooks/linux-books'
-- nginx Master  =>  in 'documantaition'
-- nginx book    =>  in '/media/mahney/hardmahney/libraryBooks'
-- mak library management system with table borrow and table reservation in **dart lang** **using console** *json and postgre and mysql* 
+  - To display all the active network interfaces on your Linux system execute the command ☄️
+    ```
+    nmcli connection show
+    OR
+    nmcli con show 
+    ```
+ 
+  - To display both active and inactive interfaces ☄️
+    ```
+    nmcli dev status
+    ``` 
+ 
+  - To show ip address of your device ☄️
+    ```
+    ip address show 
+    ip addr
+    nmcli
+    ```  
 
+------------------------
+------------------------
+------------------------ 
 
 
 # 1 how to create and run database server using postgresSQL server 🚀
@@ -361,15 +346,8 @@ docker inspect **container_name**
 sudo chmod 666 /var/run/docker.sock  
 ```
 
-# 5 how to install puthon3 on pop7🚀
-```  
-sudo apt-get update
+
 ``` 
-``` 
-sudo apt-get install python3.9.7
-```
-```
-sudo apt-get install python3-pip
 
 ```
 # 5 settings of pgadmin **[ password ]** 🚀
@@ -406,13 +384,6 @@ swap
 /home 
 
 sudo dpkg -i  '/media/mahney/hardmahney/linux_programs/balena-etcher-electron_1.5.109_amd64.deb'
-
-
-
-
-
-
-
 
 
 pkill gunicorn

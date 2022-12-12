@@ -28,3 +28,8 @@
    ```git
    git add * && git commit -m "new commit" && git push
    ```
+ - How to use a single command line to install python && pip && virtualenvironment  ☄️
+
+   ``` sh 
+   sudo apt-get update && sudo apt-get install python3.10 && sudo apt-get install python3-pip && pip install virtualenv
+   ```   
