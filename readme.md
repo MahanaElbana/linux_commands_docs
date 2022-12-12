@@ -5,7 +5,7 @@
  - DigitalOcean
  - Python
  - Gunicorn 
- - 
+
 <p align="center">
   Building API using Django REST framework
   <br />
@@ -16,17 +16,8 @@
 </p>
 
 <p align="center">
-  <code><img height="48" src="./pic/python.png"/></code>
-  <code><img height="48" src="./pic/django.png"/></code>
-  <code><img height="48" src="./pic/Swagger-logo.png"/></code>
-  <code><img height="48" src="./pic/postman.png"/></code>
-  <code><img height="48" src="./pic/api.jpg"/></code>
+  <code><img height="48" src="./pictures/django.png"/></code>
+  <code><img height="48" src="./pictures/nginx.png"/></code>
 
 </p>
 
-</p>
-
-------
-------
-![django project structure](./pictures/django.png) 
-![django project structure](./pictures/nginx.png)
