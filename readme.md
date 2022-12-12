@@ -21,3 +21,10 @@
   <code><img height="48" src="./pictures/docker.png"      /></code>
 </p>
 
+## Basic && fast Commands 🦅
+
+ - How to use a single command line to push any update in your project 
+   
+   ```git
+   git add * && git commit -m "new commit" && git push
+   ```
