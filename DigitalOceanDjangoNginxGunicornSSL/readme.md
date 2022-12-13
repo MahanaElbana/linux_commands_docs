@@ -17,7 +17,7 @@
   <code><img height="48" src="../pictures/nginx.png"       /></code> 
 </p>
 
-# commands to create project && Deploy on DigitalOcean 🔭
+## commands to create project && Deploy on DigitalOcean 🔭
 
 - on server should install python and update ubuntu machine and install pip ☄️
   ```
