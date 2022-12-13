@@ -1,7 +1,7 @@
 
 <h1 align="center"> How to deploy your Django application on DigitalOcean for production or release mode</h1>
 
-# 🚀 Content
+## 🚀 Content
   
  - 💙 python(Django) 
  - 💙 Gunicorn
