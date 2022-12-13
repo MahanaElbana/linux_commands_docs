@@ -46,6 +46,7 @@
     - enter to django project in the path of **requirements.txt**
     - install python packages 
 
+
     ```
     root@ubuntu-platrain-v2:~# cd /home
     root@ubuntu-platrain-v2:/home# mkdir project
@@ -62,24 +63,71 @@
      assignment  emptyhall   presence   README.md  static            usermanager
     (env) root@ubuntu-platrain-v2:/home/project/platrain-v2# pip install -r requirements.txt
     ```
-
-## What is the third step 🧐 ?
-
-
-## commands to create project && Deploy on DigitalOcean 🔭
-
-
-- **(Django project Structure)** or **git clone the project from gitHub and create virtual environment** ☄️
-  
-  - create django project 
-    
+  - if ```gunicorn``` is not exist in ```requirements.txt``` 
     ```
-     DigitalOceanDjangoNginxGunicornSSL
-         - venv
-         - PlatRain 
-            - anyApp
+    pip install gunicorn
+    ```
+    ```
+    (env) root@ubuntu-platrain-v2:/home/project/platrain-v2# pip install gunicorn
+    ```
+## What is the third step 🧐 ?
+  
+  -  Once you set up a new Machine on **Digital Ocean** add 👇 
+     ```
+     sudo ufw enable 
+     sudo ufw allow ssh && sudo ufw allow 80 && sudo allow 443
+     sudo ufw allow OpenSSH
+     sudo ufw allow 20
+     sudo ufw status
+     sudo ufw disable
+     ```
+
+## Test on first ,second && third steps 🧐 ?
+   - Determine whether or not packages exist . 
+     ```
+     pip --version && python3 --version  && virtualenv --version
+     ``` 
+     ```
+     root@ubuntu-platrain-v2:~# pip --version && python3 --version  && virtualenv --version 
+     pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+     Python 3.10.6
+     virtualenv 20.13.0+ds from /usr/lib/python3/dist-packages/virtualenv/__init__.py
+     ```
+   - Test runing django project status 
+     
+     ```
+     root@ubuntu-platrain-v2:~# cd /home/project
+     root@ubuntu-platrain-v2:/home/project# source env/bin/activate
+     (env) root@ubuntu-platrain-v2:/home/project# cd platrain-v2
+     (env) root@ubuntu-platrain-v2:/home/project/platrain-v2# gunicorn -b 0.0.0.0:80 project.wsgi
+     ``` 
+   - eventually , deactivate virtual environment **env**  
+
+   - **(Django project Structure)** ☄️ 
+  
+     ```
+      root@ubuntu-platrain-v2:/home/project#
+         - env
+         - platrain-v2 
             - project
               - settings.py
+            - about
+            - db.sqlite3  
+            - manage.py  
+            - requirements.txt  
+            - studyclass
+            - accounts    
+            - Dockerfile  
+            - media  
+            - static                 
+            - quizv4     
+            - settings          
+            - templates
+            - assignment  
+            - emptyhall   
+            - presence   
+            - README.md  
+            - usermanager
     ```
     ```
     /home/mahney/Documents/repo_github/linux_commands_docs
@@ -87,21 +135,7 @@
        - /home/mahney/Documents/repo_github/linux_commands_docs/PlatRain
     ```
 
-  - OR git clone the project from gitHub
-    
-    ```
-    git clone repo_path 
-    virtualenv venv
-    pip install -r requirements.txt
-    pip install gunicorn
-    source ./venv/bin/activate
-    ```
-   - under the path : to test the project 
-     /home/mahney/Documents/repo_github/linux_commands_docs/DigitalOceanDjangoNginxGunicornSSL/PlatRain 
-     ```  
-     gunicorn --bind  0.0.0.0:8888  project.wsgi
-     ```
-  - ![django project structure](./project_django_structure.png) 
+## What is the fourth step 🧐 ?
 
 
 # ./linux_commands_docs/DigitalOceanDjangoNginxGunicornSSL/PlatRain/project/settings.py 
@@ -229,7 +263,7 @@ EMAIL_HOST_USER = 'host user'
 EMAIL_HOST_PASSWORD = 'password fro google settings'
 
 # The following settings should be exist for cross origin error
-CSRF_TRUSTED_ORIGINS = ['*','http://*.IpOrDomainName']
+CSRF_TRUSTED_ORIGINS = ['*','https://*.IpOrDomainName']
 SECURE_CROSS_ORIGIN_OPENER_POLICY = ['IpOrDomainName','*']
 ```
 
