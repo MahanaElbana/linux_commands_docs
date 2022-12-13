@@ -105,7 +105,7 @@
 
    - **(Django project Structure)** ☄️ 
   
-     ```
+      ```
       root@ubuntu-platrain-v2:/home/project#
          - env
          - platrain-v2 
@@ -128,15 +128,151 @@
             - presence   
             - README.md  
             - usermanager
-    ```
-    ```
-    /home/mahney/Documents/repo_github/linux_commands_docs
-       - /home/mahney/Documents/repo_github/linux_commands_docs/ven
-       - /home/mahney/Documents/repo_github/linux_commands_docs/PlatRain
-    ```
+      ```
+      ```
+      root@ubuntu-platrain-v2:~# cd /home/project
+      root@ubuntu-platrain-v2:/home/project# ls
+      platrain-v2   env
+      ```
 
 ## What is the fourth step 🧐 ?
 
+<h3 align="center">First step</h3> 
+
+ - DigitalOcean Ubuntu has ```www-data```
+ - Create group on linux ```www-data``` if is not exist 
+ 
+   ``` 
+   groupadd [OPTIONS] GROUPNAME 
+   ```
+   ```
+   sudo groupadd www-data
+   ```
+
+ - Change the user and/or group ownership of a given file, directory, or symbolic link.     
+   
+   ```
+   sudo chown mahney:www-data /home/project/platrain-v2/
+   ```
+
+<h3 align="center">Second step</h3> 
+
+ - Create a Gunicorn systemd Socket File (*gunicorn.socket*)
+
+   ```
+   sudo nano /etc/systemd/system/gunicorn.socket
+   ```
+   
+   ```gunicorn.socket
+   [Unit]
+   Description=gunicorn socket
+   
+   [Socket]
+   ListenStream=/run/gunicorn.sock
+   
+   [Install]
+   WantedBy=sockets.target
+   ```
+<h3 align="center">Third step</h3> 
+
+ - Create a Gunicorn systemd Service File (*gunicorn.service*)
+   
+   ```
+   sudo nano /etc/systemd/system/gunicorn.service
+   ```
+
+   ```
+   [Unit]
+   Description=gunicorn daemon
+   Requires=gunicorn.socket
+   After=network.target
+   [Service]
+   User=root
+   Group=www-data
+   WorkingDirectory=/home/project/platrain-v2
+   ExecStart=/home/project/env/bin/gunicorn \
+             --access-logfile - \
+             --workers 3 \
+             --bind unix:/run/gunicorn.sock \
+             project.wsgi:application
+   [Install]
+   WantedBy=multi-user.target
+   ```
+<h3 align="center">Fourth step</h3> 
+
+- start gunicorn and enable service 
+   ```
+   sudo systemctl start gunicorn
+   sudo systemctl enable gunicorn
+   sudo systemctl status gunicorn.socket
+   ```
+<h3 align="center">Fifth step</h3> 
+  
+- check for the existence of the **gunicorn.sock** file within the **/run** directory
+  ```
+  file /run/gunicorn.sock
+  ```
+  
+  ```output
+  /run/gunicorn.sock: socket
+  ```
+
+<h3 align="center">Sixth step</h3> 
+
+- for reload gunicorn with new upate , if is stopping 
+  ```
+  systemctl daemon-reload
+  sudo systemctl start gunicorn
+  sudo nano gunicorn.service
+  ```
+
+## What is the Fifth step 🧐 ?  
+
+ - nginx configyration in the following path 
+
+   ```
+   /etc/nginx/sites-available/default
+   ```
+   
+   ```
+   server {
+       
+       listen       80;
+       listen  [::]:80;
+       server_name  localhost;
+   
+       location = /favicon.ico { access_log off; log_not_found off; }
+       
+       location /static/ {
+           autoindex on;
+           alias /home/project/platrain-v2/static/;
+       }
+   
+       location /media/ {
+           autoindex on;
+           alias /home/project/platrain-v2/media/;
+       }
+   
+     
+       location / {
+           include proxy_params;
+           proxy_pass http://unix:/run/gunicorn.sock ;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header Host $host;
+           proxy_redirect off;
+       }
+   
+   ```
+# Python manage.Py collectstatic
+# default in *nginx.conf*
+
+# commands you need to use
+
+```
+systemctl daemon-reload
+sudo systemctl start gunicorn
+sudo nano gunicorn.service
+```
 
 # ./linux_commands_docs/DigitalOceanDjangoNginxGunicornSSL/PlatRain/project/settings.py 
 
@@ -313,11 +449,6 @@ STATICFILES_DIRS = [
   ```
     - to get out static files to become in the root path
 
-# the following command for test 
-
-```
-gunicorn -b 0.0.0.0:9898 project.wsgi
-```
 
 
 
@@ -388,131 +519,7 @@ nohup python manage.py runserver '0.0.0.0:8000' &
 
 ```
 
----------------------------------------------------------
----------------------------------------------------------
----------------------------------------------------------
 
-# step zero : How to create group on linux
-``` 
-groupadd [OPTIONS] GROUPNAME 
-```
-```
-sudo groupadd www-data
-```
-# step zero :  /home/platrainproject/PlatRain
-```
- sudo chown mahney:www-data /media/hardmahney/E_Conclusion/django_gunicorn_example/PlatRain/
-```
-# step one : Create a Gunicorn systemd Socket File (*gunicorn.socket*)
-
-```
-sudo nano /etc/systemd/system/gunicorn.socket
-```
-
-```gunicorn.socket
-[Unit]
-Description=gunicorn socket
-
-[Socket]
-ListenStream=/run/gunicorn.sock
-
-[Install]
-WantedBy=sockets.target
-```
-
-# step two : Create a Gunicorn systemd Service File (*gunicorn.service*)
-
-```
-sudo nano /etc/systemd/system/gunicorn.service
-```
-
-```
-[Unit]
-Description=gunicorn daemon
-Requires=gunicorn.socket
-After=network.target
-[Service]
-User=mahney
-Group=www-data
-WorkingDirectory=/media/hardmahney/E_Conclusion/django_gunicorn_example/PlatRain
-ExecStart=/media/hardmahney/E_Conclusion/django_gunicorn_example/venv/bin/gunicorn \
-          --access-logfile - \
-          --workers 3 \
-          --bind unix:/run/gunicorn.sock \
-          project.wsgi:application
-[Install]
-WantedBy=multi-user.target
-```
-
-# Step three  
-
-```
-sudo systemctl start gunicorn
-sudo systemctl enable gunicorn
-sudo systemctl status gunicorn.socket
-```
-
-# step four : check for the existence of the gunicorn.sock file within the /run directory:
-```
-file /run/gunicorn.sock
-```
-
-```output
-/run/gunicorn.sock: socket
-```
-
-# step five  nginx
-
-```
-
-
-server {
-    listen       80;
-    listen  [::]:80;
-    server_name  localhost;
-
-    location = /favicon.ico { access_log off; log_not_found off; }
-    
-    location /static/ {
-        autoindex on;
-        alias /media/hardmahney/E_Conclusion/django_gunicorn_example/PlatRain/static/;
-    }
-
-    location /media/ {
-        autoindex on;
-        alias /media/hardmahney/E_Conclusion/django_gunicorn_example/PlatRain/media/;
-    }
-
-  
-    location / {
-        include proxy_params;
-        proxy_pass http://unix:/run/gunicorn.sock ;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $host;
-        proxy_redirect off;
-    }
-
-
-     location ~* \.(css|js|jpg)$ {
-        access_log off;
-            
-        add_header Cache-Control public;
-        add_header Pragma public;
-        add_header Vary Accept-Encoding;
-        expires 1M;
-        }
-
-```
-# Python manage.Py collectstatic
-# default in *nginx.conf*
-
-# commands you need to use
-
-```
-systemctl daemon-reload
-sudo systemctl start gunicorn
-sudo nano gunicorn.service
-```
 
 # url 
 [first url](https://hiteshmishra708.medium.com/deploy-django-app-with-nginx-and-gunicorn-37916ede7db)
