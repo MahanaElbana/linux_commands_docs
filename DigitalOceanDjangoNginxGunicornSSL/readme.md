@@ -428,15 +428,13 @@ sudo nano gunicorn.service
 
 
 
-
-
 -------------------------
 -------------------------
 -------------------------
 
-# DigitalOcean **Nginx settings** with **Django Project**
+## DigitalOcean **Nginx settings** with **Django Project** 😄
 
-   - Your Django project path : ```/home/project/platrain-v2```
+   - Your Django project path : ```/home/project/platrain-v2``` ☄️
 
       ```
       root@ubuntu-platrain-v2:~# cd /home/project
@@ -444,9 +442,9 @@ sudo nano gunicorn.service
       env  platrain-v2
       ```
 
-   - path of Nginx configuration file : ```/etc/nginx/sites-available/default```
+   - path of Nginx configuration file : ```/etc/nginx/sites-available/default``` ☄️
    
-   - After accessing to your DigitalOcean machine (**ubuntu-platrain-v2**)
+   - After accessing to your DigitalOcean machine (**ubuntu-platrain-v2**) ☄️
        - enter to ```/etc/nginx/sites-available/default``` 
          ```
          root@ubuntu-platrain-v2:/etc/nginx/sites-available# sudo nano default  
@@ -594,14 +592,14 @@ sudo nano gunicorn.service
 
          ```
 
-   - How to add ssl to your website
+   - How to add ssl to your website ☄️
      ```
      root@ubuntu-platrain-v2:~# sudo apt install certbot python3-certbot-nginx
      root@ubuntu-platrain-v2:~# sudo ufw allow 'Nginx Full'
      root@ubuntu-platrain-v2:~# sudo ufw delete allow 'Nginx HTTP'
      root@ubuntu-platrain-v2:~# sudo certbot --nginx -d www.platrain.online -d platrain.online
      ``` 
-   - The result from the : ``` sudo certbot --nginx -d www.platrain.online -d platrain.online ``` && action 
+   - The result from the : ``` sudo certbot --nginx -d www.platrain.online -d platrain.online ``` && action ☄️
      
      ```
      Saving debug log to /var/log/letsencrypt/letsencrypt.log
@@ -643,15 +641,63 @@ sudo nano gunicorn.service
       * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
       * Donating to EFF:                    https://eff.org/donate-le
      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
+     
      ```
-  - Url which i use it 
-    ```
-    https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
-    ```    
----------------digital ocien----------------
+
+   - Url Reference :   ☄️
+     - [DigitalOceanSSL](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04)
+   
+   - All NGINX DIGITALOCEAN COMMANDS STEP BY STEP ☄️
+     ```
+     sudo nano /etc/nginx/sites-available/default
+     ```
+     ```
+     #########   configuration By : Mahney Elbana  #################
+              server_name www.platrain.online platrain.online 143.110.168.90 ;
+             
+              location = /favicon.ico { access_log off; log_not_found off; }
+
+               location /static/ {
+                 autoindex on;
+                 alias /home/project/platrain-v2/static/;
+               }
+
+               location /media/ {
+                   autoindex on;
+                   alias /home/project/platrain-v2/media/;
+               }
+
+               location / {
+                  #include proxy_params;
+                  proxy_pass http://unix:/run/gunicorn.sock ;
+                  # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                  # proxy_set_header Host $host;
+                  # proxy_redirect off;
+                }
+
+               # location ~* \.(css|js|jpg)$ {
+               #    access_log off;
+               #    add_header Cache-Control public;
+               #    add_header Pragma public;
+               #    add_header Vary Accept-Encoding;
+               #    expires 1M;
+               #  }
+
+     ###############   configuration By : Mahney Elbana  #################
+     ```
+     ```
+     sudo apt install certbot python3-certbot-nginx
+     sudo ufw allow 'Nginx Full'
+     sudo ufw delete allow 'Nginx HTTP'
+     sudo certbot --nginx -d www.platrain.online -d platrain.online
+     ```
+------------
+------------
+------------     
+# PlatRain Machine : digital ocien 
+```
 ssh root@188.166.73.85
+```
 ```password
 b$GDC&HuCU7zd9n
 ```
