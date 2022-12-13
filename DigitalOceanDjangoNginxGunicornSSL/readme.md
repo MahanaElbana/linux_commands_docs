@@ -17,17 +17,57 @@
   <code><img height="48" src="../pictures/nginx.png"       /></code> 
 </p>
 
+## What is the first step 🧐 ?
+
+  - Enter to the DigitalOcean Ubuntu machine ☄️
+    
+    ```
+    ssh root@ip_address
+    ```
+  - Install and update package ☄️ 
+
+    - **(update ubuntu) && (upgrade ubuntu) && (python3.10) && (pip) && (virtualenv)**
+      ```
+      sudo apt update 
+      sudo apt upgrade 
+      suddo apt install python3.10
+      sudo apt-get install python3-pip
+      pip3 install virtualenv
+      python3 -m pip install --upgrade pip
+      ```
+## What is the second step 🧐 ?
+
+  - Upload your **django project** on **your github** ☄️ 
+
+  - Create a directory ```/home/project``` on DigitalOcean Ubuntu machine ☄️ 
+    - To pull your **django project** from github
+    - To Create **virtualenv**
+    - active virtualenv 
+    - enter to django project in the path of **requirements.txt**
+    - install python packages 
+
+    ```
+    root@ubuntu-platrain-v2:~# cd /home
+    root@ubuntu-platrain-v2:/home# mkdir project
+    root@ubuntu-platrain-v2:/home# cd project 
+    root@ubuntu-platrain-v2:/home/project# git pull *your django repository*
+    root@ubuntu-platrain-v2:/home/project# virtualenv env 
+    root@ubuntu-platrain-v2:/home/project# ls
+    platrain-v2   env
+    root@ubuntu-platrain-v2:/home/project# source env/bin/activate
+    (env) root@ubuntu-platrain-v2:/home/project# cd platrain-v2
+    (env) root@ubuntu-platrain-v2:/home/project/platrain-v2# ls
+     about       db.sqlite3  manage.py  project    requirements.txt  studyclass
+     accounts    Dockerfile  media      quizv4     settings          templates
+     assignment  emptyhall   presence   README.md  static            usermanager
+    (env) root@ubuntu-platrain-v2:/home/project/platrain-v2# pip install -r requirements.txt
+    ```
+
+## What is the third step 🧐 ?
+
+
 ## commands to create project && Deploy on DigitalOcean 🔭
 
-- on server should install python and update ubuntu machine and install pip ☄️
-  ```
-  sudo apt update 
-  sudo apt upgrade 
-  suddo apt install python3.10
-  sudo apt-get install python3-pip
-  pip3 install virtualenv
-  python3 -m pip install --upgrade pip
-  ```
 
 - **(Django project Structure)** or **git clone the project from gitHub and create virtual environment** ☄️
   
