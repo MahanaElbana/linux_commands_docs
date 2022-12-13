@@ -1,17 +1,20 @@
 
-# 🚀 content about :
+<p align="center"> How to deploy your django application on digitalOcean in production or release mode</p>
+
+# 🚀 Content
+  
  - 💙 python(Django) 
  - 💙 Gunicorn
  - 💙 DigitalOcean(ubuntu)
  - 💙 Nginx
 
 <p align="center">
-  <code><img height="48" src="./pictures/python.png"      /></code>
-  <code><img height="48" src="./pictures/django.png"      /></code>
-  <code><img height="48" src="./pictures/gunicorn.png"    /></code>
-  <code><img height="48" src="./pictures/digitalocean.png"/></code>
-  <code><img height="48" src="./pictures/ubuntu.png"      /></code> 
-  <code><img height="48" src="./pictures/nginx.png"       /></code> 
+  <code><img height="48" src="../pictures/python.png"      /></code>
+  <code><img height="48" src="../pictures/django.png"      /></code>
+  <code><img height="48" src="../pictures/gunicorn.png"    /></code>
+  <code><img height="48" src="../pictures/digitalocean.png"/></code>
+  <code><img height="48" src="../pictures/ubuntu.png"      /></code> 
+  <code><img height="48" src="../pictures/nginx.png"       /></code> 
 </p>
 
 # commands to create project && Deploy on DigitalOcean 🔭
