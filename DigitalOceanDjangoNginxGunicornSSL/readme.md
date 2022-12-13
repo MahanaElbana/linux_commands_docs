@@ -50,7 +50,7 @@
     root@ubuntu-platrain-v2:~# cd /home
     root@ubuntu-platrain-v2:/home# mkdir project
     root@ubuntu-platrain-v2:/home# cd project 
-    root@ubuntu-platrain-v2:/home/project# git pull *your django repository*
+    root@ubuntu-platrain-v2:/home/project# git pull your_django_repository_name
     root@ubuntu-platrain-v2:/home/project# virtualenv env 
     root@ubuntu-platrain-v2:/home/project# ls
     platrain-v2   env
