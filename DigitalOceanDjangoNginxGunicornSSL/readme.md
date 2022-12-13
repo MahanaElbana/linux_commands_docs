@@ -1,5 +1,5 @@
 
-<p align="center"> How to deploy your django application on digitalOcean in production or release mode</p>
+<h1 align="center"> How to deploy your Django application on DigitalOcean for production or release mode</h1>
 
 # 🚀 Content
   
