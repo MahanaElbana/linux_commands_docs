@@ -99,3 +99,86 @@ ssh root@143.110.168.90
 ```password
 with010*#ALLAH
 ```
+
+
+
+# how to run  nginx as a revers proxey 🔭
+
+```
+docker run --name  cert1 -p 80:80 -itd  -v  /media/hardmahney/E_Conclusion/django_gunicorn_example/PlatRain/static:/opt/services/platrain/static   -v  /media/hardmahney/E_Conclusion/django_gunicorn_example/PlatRain/media:/opt/services/platrain/media mahney/nginx-certbot:v1
+```
+
+```
+######################################################
+
+# first we declare our upstream server, which is our Gunicorn application
+upstream platrain_app {
+    # docker will automatically resolve this to the correct address
+    # because we use the same name as the service: "djangoapp"
+    server 172.17.0.2:8000;
+}
+
+#######################################################
+
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
+
+
+
+   # update track 
+    location / {
+        # everything is passed to Gunicorn
+        proxy_pass http://platrain_app ;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+        proxy_redirect off;
+    }
+
+
+
+   location /static/ {
+        autoindex on;
+        alias /opt/services/platrain/static/;
+    }
+
+
+    location /media/ {
+        autoindex on;
+        alias /opt/services/platrain/media/;
+    }
+
+
+          location ~* \.(css|js|jpg)$ {
+            access_log off;
+            
+            add_header Cache-Control public;
+            add_header Pragma public;
+            add_header Vary Accept-Encoding;
+            expires 1M;
+        }
+####################################
+```
+
+# command to run server django in bacground 
+
+```
+nohup gunicorn -b 0.0.0.0:2356 project.wsgi &
+nohup python manage.py runserver '0.0.0.0:8000' &
+
+```
+------------
+------------
+------------     
+# PlatRain Machine : digital ocien 
+```
+ssh root@188.166.73.85
+```
+```password
+b$GDC&HuCU7zd9n
+```
+
+sudo ufw delete allow 80
+
+/home/platrainproject/PlatRain 
