@@ -19,9 +19,9 @@
   <code><img height="48" src="./pictures/terminal.png"    /></code>
   <code><img height="48" src="./pictures/digitalocean.png"/></code>
   <code><img height="48" src="./pictures/docker.png"      /></code>
-  <html><img style="border-radius: 50%" height= "53px" src="./pictures/github.png" alt="Avatar"></html>
+  <html><img style="border-radius: 50%" height= "53px" src="./pictures/github.png"></html>
 </p>
- <html><img style="border-radius: 50%" height= "53px" src="./pictures/github.png" alt="Avatar"></html>
+
 ## Basic && fast Commands 🙂
 
  - How to use a single command line to push any update in your project ☄️
