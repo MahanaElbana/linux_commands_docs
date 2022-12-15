@@ -9,8 +9,8 @@
 
 <p align="center">
   <code><img height="48" src="../pictures/digitalocean.png" /></code>
-  <code><img height="48" src="../pictures/Linode.png"       /></code>
-  <code><img height="48" src="../pictures/AWS.png"          /></code>
-  <code><img height="48" src="../pictures/Azure.png"        /></code>
+  <code><img height="48" src="../pictures/linode.png"       /></code>
+  <code><img height="48" src="../pictures/aws.png"          /></code>
+  
 
 </p>
