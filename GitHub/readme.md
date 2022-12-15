@@ -3,9 +3,9 @@
 
 
 
-    <p align="center">
-     <img src="../pictures/github.png" alt="Avatar" class="avatar">
-    </p>
+<p align="center">
+<code><img height="200" src="../pictures/github.png" /></code>
+</p>
 
 
 ## What is Git and Github ?
