@@ -5,17 +5,18 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.avatar {
-  vertical-align: middle;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-</style>
+ <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+     .avatar {
+         vertical-align: middle;
+         width: 100px;
+         height: 100px;
+       border-radius: 50%;
+      }
+< /style>
 </head>
+<body>
     <p align="center">
      <img src="../pictures/github.png" alt="Avatar" class="avatar">
     </p>
