@@ -1,4 +1,4 @@
-<h1 align="center"> How to deploy your project on cloud platforn</h1>
+<h1 align="center"> How to deploy your project on cloud platform</h1>
 
 ## 🚀 Content
   
