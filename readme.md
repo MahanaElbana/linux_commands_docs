@@ -19,7 +19,7 @@
   <code><img height="48" src="./pictures/terminal.png"/>    </code>
   <code><img height="48" src="./pictures/digitalocean.png"/></code>
   <code><img height="48" src="./pictures/docker.png"/>      </code>
-  <code><img height= "53px" src="./pictures/github.png">    </code>
+  <code><img height= "50px" src="./pictures/github.png">    </code>
 </p>
 
 ## Basic && fast Commands 🙂
