@@ -440,15 +440,9 @@
     SECURE_CROSS_ORIGIN_OPENER_POLICY = ['IpOrDomainName','*']
     ```
 
+## ## What is the seventh step 🧐 ?  
 
-
-
-
--------------------------
--------------------------
--------------------------
-
-## DigitalOcean **Nginx settings** with **Django Project** 😄
+  -  DigitalOcean **Nginx settings SSL** with **Django Project**
 
    - Your Django project path : ```/home/project/platrain-v2``` ☄️
 
@@ -652,9 +646,7 @@
      
      ```
 
-   - Url Reference :   ☄️
-     - [DigitalOceanSSL](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04)
-   
+
    - All NGINX DIGITALOCEAN COMMANDS STEP BY STEP ☄️
      ```
      sudo nano /etc/nginx/sites-available/default
@@ -699,7 +691,52 @@
      sudo ufw delete allow 'Nginx HTTP'
      sudo certbot --nginx -d www.platrain.online -d platrain.online
      ```
-   
-# url 
-[first url](https://hiteshmishra708.medium.com/deploy-django-app-with-nginx-and-gunicorn-37916ede7db)
-[second url](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04#create-and-configure-a-new-django-project)
+
+
+# ALL BASH COMMANDS 💻
+ 
+  ```
+  ssh root@ip_address
+  sudo apt update 
+  sudo apt upgrade 
+  suddo apt install python3.10
+  sudo apt-get install python3-pip
+  pip3 install virtualenv
+  python3 -m pip install --upgrade pip
+  cd /home
+  mkdir project
+  cd project 
+  git pull your_django_repository_name
+  virtualenv env 
+  ls
+  source env/bin/activate
+  platrain-v2
+  pip install -r requirements.txt
+  pip install gunicorn
+  pip install gunicorn
+  sudo ufw enable 
+  sudo ufw allow ssh && sudo ufw allow 80 && sudo allow 443
+  sudo ufw allow OpenSSH
+  sudo ufw allow 20
+  sudo ufw status
+  sudo ufw disable
+  pip --version && python3 --version  && virtualenv --version
+  gunicorn -b 0.0.0.0:80 project.wsgi
+  sudo nano /etc/systemd/system/gunicorn.socket
+  sudo nano /etc/systemd/system/gunicorn.service
+  systemctl daemon-reload
+  sudo systemctl start gunicorn
+  sudo nano gunicorn.service
+  systemctl daemon-reload
+  sudo systemctl start gunicorn
+  sudo nano /etc/nginx/sites-available/default
+  sudo apt install certbot python3-certbot-nginx
+  sudo ufw allow 'Nginx Full'
+  sudo ufw delete allow 'Nginx HTTP'
+  sudo certbot --nginx -d www.platrain.online -d platrain.online
+  ```
+# LINKS 🔗
+
+  - [DigitalOceanSSL](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04)
+  - [DigitalOceanSSL](https://hiteshmishra708.medium.com/deploy-django-app-with-nginx-and-gunicorn-37916ede7db)
+  - [DigitalOceanSSL](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04#create-and-configure-a-new-django-project)
