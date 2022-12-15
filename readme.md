@@ -8,6 +8,7 @@
  - 💙 Terminal
  - 💙 DigitalOcean
  - 💙 Docker
+ - 💙 GitHub
 
 <p align="center">
   <code><img height="48" src="./pictures/python.png"/>      </code>
