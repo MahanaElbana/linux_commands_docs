@@ -11,6 +11,5 @@
   <code><img height="48" src="../pictures/digitalocean.png" /></code>
   <code><img height="48" src="../pictures/linode.png"       /></code>
   <code><img height="48" src="../pictures/aws.png"          /></code>
-  
-
+  <code><img height="48" src="../pictures/azure.png"        /></code>
 </p>
