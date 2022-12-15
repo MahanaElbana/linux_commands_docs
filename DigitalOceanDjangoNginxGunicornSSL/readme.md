@@ -440,7 +440,7 @@
     SECURE_CROSS_ORIGIN_OPENER_POLICY = ['IpOrDomainName','*']
     ```
 
-## ## What is the seventh step 🧐 ?  
+## What is the seventh step 🧐 ?  
 
   -  DigitalOcean **Nginx settings SSL** with **Django Project**
 
