@@ -10,6 +10,7 @@
  - 💙 Docker
 
 <p align="center">
+
   <code><img height="48" src="./pictures/python.png"      /></code>
   <code><img height="48" src="./pictures/django.png"      /></code>
   <code><img height="48" src="./pictures/gunicorn.png"    /></code>
@@ -19,6 +20,8 @@
   <code><img height="48" src="./pictures/terminal.png"    /></code>
   <code><img height="48" src="./pictures/digitalocean.png"/></code>
   <code><img height="48" src="./pictures/docker.png"      /></code>
+  <code><img style="border-radius: 50%" height= "53px" src="./pictures/github.png" alt="Avatar"></code>
+  
 </p>
 
 ## Basic && fast Commands 🙂
