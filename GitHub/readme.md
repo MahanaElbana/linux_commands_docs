@@ -1,9 +1,27 @@
 
 <h1 align="center"> GitHub commands && How tos && Problems </h1>
 
-<p align="center">
-  <code><img style="border-radius: 50%" height= "100px" src="../pictures/github.png" alt="Avatar"></code>
-</p>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+</style>
+</head>
+    <p align="center">
+     <img src="../pictures/github.png" alt="Avatar" class="avatar">
+    </p>
+  </body>
+</html>
+
 
 ## What is Git and Github ?
 ```
