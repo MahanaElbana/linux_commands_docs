@@ -1,39 +1,38 @@
 
-# 💙 Contents of NGINX 💙
+# 💚 NGINX 
 
 
- - 🎋 <a href="#N01">Topics </a>
- - 🎋 <a href="#N02">Introduction to NGINX</a>
- - 🎋 <a href="#N03">How to install NGINX </a> 
- - 🎋 <a href="#N04">Introduction to NGINX's Configuration Files</a>
+## 💙 Content
 
- - 🎋 <a href="#N01">How to start and enter the Nginx container </a>
- - 🎋 <a href="#N02">How to show help inside nginx container</a>                                                              
- - 🎋 <a href="#N03">How to update the location directive in Nginx from *default.conf* </a>                             
- - 🎋 <a href="#N04">How to run more than website(container) on one contair NGINX from *Nginx image* </a>                      
- - 🎋 <a href="#N05">default.conf  **/etc/nginx/conf.d/default.conf** : Nginx configuration file</a>                 
- - 🎋 <a href="#N06">Reverse Proxy for two web sites </a>                                                            
- - 🎋 <a href="#N07">how to add URL for any ip in etc/hosts</a>                                                         
- - 🎋 <a href="#N08">how to add URL for any ip of container in etc/hosts and another notes </a>                         
- - 🎋 <a href="#N09">load balancing for two containers [httpd1 and ghost1] with nginx1 container </a>                 
- - 🎋 <a href="#N10">Another method : load balancing for two containers [httpd1 and ghost1] with nginx1 container </a> 
- - 🎋 <a href="#N11">Nginx comman commands</a> 
-
-
-<center>
-  <img src="picture/nginx_logo.png" width="90px" height="100px">
-</center>
+ - 🎋 Topics
+ - 🎋 Introduction to NGINX
+ - 🎋 How to install NGINX 
+ - 🎋 Introduction to NGINX's Configuration Files
+ - 🎋 How to start and enter the Nginx container 
+ - 🎋 How to show help inside nginx container                                                             
+ - 🎋 How to update the location directive in Nginx from *default.conf*                             
+ - 🎋 How to run more than website(container) on one contair NGINX from *Nginx image*                      
+ - 🎋 default.conf  **/etc/nginx/conf.d/default.conf** : Nginx configuration file                
+ - 🎋 Reverse Proxy for two web sites                                                            
+ - 🎋 how to add URL for any ip in etc/hosts                                                        
+ - 🎋 how to add URL for any ip of container in etc/hosts and another notes                         
+ - 🎋 load balancing for two containers [httpd1 and ghost1] with nginx1 container                 
+ - 🎋 Another method : load balancing for two containers [httpd1 and ghost1] with nginx1 container 
+ - 🎋 Nginx comman commands
 
 
-# ☕ <a id="N01">Topics</a> 
- 
+<p align="center">
+  <code><img height="100" src="../pictures/nginx.png" /></code>
+</p>
+
+
+## Topics ☄️
  - NGINX is open source , i will :
     * Configure NGINX as a web server . 
     * Reverse proxy server.
     * load balancer from scratch.
     * Optimize NGINX to get maximum performance out of your server. 
-
-# ☕ <a id="N02"> Introduction to NGINX</a> 
+## Introduction to NGINX ☄️
 
    - NGINX is a high performance web server . 
    - NGINX is developed to facilitate the increasing needs of the modern web.
@@ -52,7 +51,7 @@
    - NGINX is also a lot easier to configure .
    - easily maintainable configuration files .
 
-# ☕ <a id="N03"> How to install NGINX </a> 
+# How to install NGINX ☄️
  
   - write the following commands 
    
@@ -66,7 +65,7 @@
     /etc/nginx
     ``` 
 
-# <a id="N04"> Introduction to NGINX's Configuration Files </a>  ☕
+# Introduction to NGINX's Configuration Files ☄️
 
  - **Nginx.conf**: The main NGINX configuration file, which can be found in the container at the following path. 
    
@@ -123,7 +122,7 @@
        include /etc/nginx/conf.d/*.conf;
    }
    ```
-#  How to return massege using nginx  
+##  How to return massege using nginx  ☄️
 
    
    - enter to the main configuration file 
@@ -153,7 +152,7 @@
 
 
 
-# <a id="N05"> Two of the most important terminologies of NGINX configuration files </a> ☕
+## Two of the most important terminologies of NGINX configuration files  ☄️
   
   - They are directives and contexts.
       - Everything inside a NGINX configuration file is a directive.
@@ -161,7 +160,7 @@
          - Simple Directives (listen , return)
          - Block Directives (context ) (http ,events , server)
 
-# <a id="N01">How to start and enter the Nginx container </a>  ☕
+## How to start and enter the Nginx container   ☄️
   
   - How to run Nginx Container ☄️
     
@@ -174,7 +173,7 @@
     docker exec -it nginx1 bash
     ``` 
         
-# <a id="N02">How to show help inside nginx container</a>
+## How to show help inside nginx container ☄️
 
  - Write the following command in terminal :
 
@@ -207,7 +206,7 @@
 --------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------
 
-# <a id="N03">How to update the location directive in Nginx from *default.conf* </a>  ☕
+## How to update the location directive in Nginx from *default.conf*  ☄️
   
   - Enter to the following directory "/etc/nginx/conf.d
      
@@ -286,7 +285,7 @@
 --------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------
 
-# <a id="N04"> How to run more than website(container) on one contair NGINX from *Nginx image*</a>  ☕
+# <a id="N04"> How to run more than website(container) on one contair NGINX from *Nginx image* ☕
 
  - Configure **Nginx container** to Host Multiple Websites(containers) 🗒️
  - In this section, i use docker to run nginx image on two ports to run two web sites on one container (nginx) 🗒️
@@ -391,7 +390,7 @@
 --------------------------------------------------------------------------------------------
 
 
-# <a id="N05" >5. default.conf  **/etc/nginx/conf.d/default.conf** : Nginx configuration file</a>  ☕
+# <a id="N05" >5. default.conf  **/etc/nginx/conf.d/default.conf** : Nginx configuration file ☕
 
 ```bash
 
@@ -445,7 +444,7 @@ server {
 --------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------
 
-# <a id="NGINX6" > Reverse Proxy for two web sites </a> ☕
+# <a id="NGINX6" > Reverse Proxy for two web sites ☕
 ![reverse proxy](picture/reversproxy.png)
   1. settings for site2 :
     ```
@@ -511,7 +510,7 @@ server {
 --------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------
 
-# <a id="NGINX7" > how to add URL for any ip in etc/hosts</a> ☕ 
+# <a id="NGINX7" > how to add URL for any ip in etc/hosts☕ 
 ```
 sudo nano /etc/hosts
 ```
@@ -520,7 +519,7 @@ sudo nano /etc/hosts
 
 
 
-# <a id="NGINX8" > how to add URL for any ip of container in etc/hosts and another notes </a> ☕ 
+# <a id="NGINX8" > how to add URL for any ip of container in etc/hosts and another notes ☕ 
 ```
 sudo nano /etc/hosts
 ```
@@ -529,7 +528,7 @@ sudo nano /etc/hosts
 
 ![etc/hosts](picture/note2.png)
 
-# <a id="NGINX9" >load balancing for two containers [httpd1 and ghost1] with nginx1 container </a> ☕ 
+# <a id="NGINX9" >load balancing for two containers [httpd1 and ghost1] with nginx1 container ☕ 
 
 * go to the following path in nginx1 container :
   ``` 
@@ -561,7 +560,7 @@ sudo nano /etc/hosts
              }
         ```
 
-# <a id="NGINX10" >Another method : load balancing for two containers [httpd1 and ghost1] with nginx1 container </a> ☕
+# <a id="NGINX10" >Another method : load balancing for two containers [httpd1 and ghost1] with nginx1 container ☕
 
 * go to the following path in nginx1 container :
   ``` 
@@ -648,7 +647,7 @@ sudo nano /etc/hosts
 
 
 
-# <a id="N11">Nginx comman commands</a> ☕
+# <a id="N11">Nginx comman commands☕
 
  - How to display the status of the Nginx service ☄️
 
@@ -715,7 +714,7 @@ sudo nano /etc/hosts
    sudo systemctl disable nginx
    ```
 
-# <a id="N12">Nginx comman commands</a> ☕
+# <a id="N12">Nginx comman commands☕
 
 
 
