@@ -1,18 +1,15 @@
 
-<h1 align="center"> GitHub commands && How tos && Problems </h1>
-
+<h1 align="center"> GitHub Commands && How tos && Problems </h1>
 
 
 <p align="center">
 <code><img height="200" src="../pictures/github.png" /></code>
 </p>
 
+## What is Git and Github 🧐 ?
 
-## What is Git and Github ?
-```
-GIT is Distributed Version Control System 
-Git is Free and open source 
-```
+ - 💙 GIT is Distributed Version Control System
+ - 💙 Git is Free and open source
 
 # All git commands of github ordered 🔥 
 
