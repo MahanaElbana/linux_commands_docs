@@ -372,3 +372,8 @@ git push origin name_branch
 git push RemoteName RemoteBranch
 git push origin main 
 ```
+
+# How to make a clone to private repo 
+```bash
+https://userName:Your_classic_Token@github.com/UserName/RepoName 
+```
