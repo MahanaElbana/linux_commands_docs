@@ -375,5 +375,7 @@ git push origin main
 
 # How to make a clone to private repo 
 ```bash
+git clone https://cbmbbmj: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@github.com/MahanaElbana/plt_2.git
+
 https://userName:Your_classic_Token@github.com/UserName/RepoName 
-```
+```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
